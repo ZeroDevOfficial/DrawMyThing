@@ -21,4 +21,7 @@ This plugin is working on most versions of Pocketmine if you run into this probl
 
 - [ ] Start Work on it
 
+- [ ] Improve the code
+
+- [ ] Release a v1.0
 
