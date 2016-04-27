@@ -5,8 +5,11 @@ This plugin is in early Development
 Things on this are being changed a lot none of them get tested before they are added so use at your own risk!!!!
  
 # Authors
-**EpicSteve33, EnderPE, ImagicalGamer**
->EnderPE
+>**EnderPE**
+>
+>EpicSteve33
+>
+>ImagicalGamer
 
 # Contact Info
 
