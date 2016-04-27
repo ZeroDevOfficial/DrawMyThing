@@ -27,9 +27,9 @@ This plugin is working on most versions of Pocketmine if you run into this probl
 
 # Todo list
 
-- [ ] Start Work on it
+- [x] Start Work on it
 
 - [ ] Improve the code
 
-- [ ] Release a v1.0
+- [x] Release a v1.0
 
