@@ -6,6 +6,7 @@ Things on this are being changed a lot none of them get tested before they are a
  
 # Authors
 **EpicSteve33, EnderPE, ImagicalGamer**
+>EnderPE
 
 # Contact Info
 
