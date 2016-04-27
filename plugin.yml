@@ -1,0 +1,9 @@
+name: DrawMyThing
+main: EnderPE\DMT\Main
+version: 1.0
+api: 1.1.0
+
+commands:
+    dmt:
+        usage: /dmt
+        description: Run the dmt command
