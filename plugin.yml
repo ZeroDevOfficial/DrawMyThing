@@ -1,7 +1,7 @@
 name: DrawMyThing
-main: EnderPE\DMT\Main
+main: Epic\Dmt\Main
 version: 1.0
-api: 1.1.0
+api: 2.0.0
 
 commands:
     dmt:
