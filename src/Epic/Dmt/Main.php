@@ -1,6 +1,6 @@
 <?php
 
-namespace EnderPE\DMT;
+namespace Epic\Dmt;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\PluginTask;
