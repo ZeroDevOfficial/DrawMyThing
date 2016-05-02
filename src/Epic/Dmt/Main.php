@@ -568,7 +568,7 @@ class GameSender extends PluginTask {
 									$player->sendMessage(TextFormat::RED . TextFormat::BOLD . "You are the winner!");
 									$player->sendMessage(TextFormat::GREEN . "|");
 									$player->sendMessage(TextFormat::GREEN . TextFormat::BOLD . "=======================");
-									$spawn = $this->plugin->getServer()->getLevelByName()->getSafeSpawn();
+									$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
 									$this->plugin->getServer()->getDefaultLevel->loadChunk($spawn->getX(), $spawn->getZ());
 									$player->teleport($spawn,0,0);
 							}
@@ -670,8 +670,8 @@ class GameSender extends PluginTask {
 									$player->sendMessage(TextFormat::RED . TextFormat::BOLD . "The winner is " . TextFormat::WHITE . $first . "!");
 									$player->sendMessage(TextFormat::GREEN . "|");
 									$player->sendMessage(TextFormat::GREEN . TextFormat::BOLD . "=======================");
-									$spawn = $this->plugin->getServer()->getLevelByName()->getSafeSpawn();
-									$this->plugin->getServer()->getLevelByName()->loadChunk($spawn->getX(), $spawn->getZ());
+									$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
+									$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
 									$player->teleport($spawn,0,0);
 									$this->arena->set("buildtime",0);
 									$this->arena->set("time",120);
