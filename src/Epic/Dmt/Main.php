@@ -262,7 +262,7 @@ class Main extends PluginBase implements Listener {
 		else if($player->isOp() && $this->mode==11 && $event->getPlayer()->getLevel()->getTile($event->getBlock()) instanceOf Sign)
 		{
 			$tile = $event->getPlayer()->getLevel()->getTile($event->getBlock());
-			$tile->setText(TextFormat::BLUE . "Draw my Thing",$this->arenaname,"",TextFormat::WHITE . TextFormat::BOLD . "0/8");
+			$tile->setText(TextFormat::BLUE . "Draw my Thing",$this->arenaname,"",TextFormat::WHITE . TextFormat::BOLD . "0 / 8");
 			$player->sendMessage(TextFormat::GREEN . "The arena '" . $this->arenaname . "' has been successfully added!");
 			$this->mode=0;
 			$this->arenaname="";
@@ -276,7 +276,7 @@ class Main extends PluginBase implements Listener {
 				$this->arena = new Config($this->getDataFolder() . "/arenas/" . $text[1] . ".yml", Config::YAML);
 				if($this->arena->get("ingame")==false)
 				{
-					if($text[3] != TextFormat::WHITE . TextFormat::BOLD . "8/8")
+					if($text[3] != TextFormat::WHITE . TextFormat::BOLD . "8 / 8")
 					{
 						$player->getInventory()->clearAll();
 						$playersin = 0;
@@ -814,7 +814,7 @@ class RefreshSigns extends PluginTask {
 					{
 						$ingame=TextFormat::RED . "INGAME";
 					}
-					$t->setText($text[0],$text[1],$ingame,TextFormat::WHITE . TextFormat::BOLD . $aop . "/8");
+					$t->setText($text[0],$text[1],$ingame,TextFormat::WHITE . TextFormat::BOLD . $aop . " / 8");
 					
 				}
 			}
