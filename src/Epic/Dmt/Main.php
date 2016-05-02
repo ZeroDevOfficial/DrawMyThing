@@ -117,8 +117,8 @@ class Main extends PluginBase implements Listener {
             case "dmt":
 				if($args[0]=="spawn")
 				{
-					$spawn = $this->getServer()->getLevelByName()->getSafeSpawn();
-					$this->getServer()->getLevelByName()->loadChunk($spawn->getX(), $spawn->getZ());
+					$spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn();
+					$this->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
 					$sender->teleport($spawn,0,0);
 				}
 			
