@@ -66,12 +66,12 @@ class Main extends PluginBase implements Listener {
 								$points = $this->arena->get($i . "Points");
 								if($this->arena->get("guessed")==0)
 								{
-									$player->sendMessage(TextFormat::GRAY . "[§cDmt§7] You're the first! You got 3 points!");
+									$player->sendMessage(TextFormat::GREEN . "You're the first! You got 3 points!");
 									$this->arena->set($i . "Points", $this->arena->get($i . "Points")+3);
 								}
 								else
 								{
-									$player->sendMessage(TextFormat::GRAY . "[§cDmt§7] Correct! You got 1 point!");
+									$player->sendMessage(TextFormat::GREEN . "Correct! You got 1 point!");
 									$this->arena->set($i . "Points", $this->arena->get($i . "Points")+1);
 								}
 								$allplayers = $this->getServer()->getOnlinePlayers();
@@ -80,7 +80,7 @@ class Main extends PluginBase implements Listener {
 								{
 								if($inp->getLevel()->getFolderName()==$levelname)
 								{
-									$inp->sendMessage(TextFormat::GRAY . "[§cDmt§7]" TextFormat::BOLD . $player->getName() . " has guessed the word!");
+									$inp->sendMessage(TextFormat::GREEN . TextFormat::BOLD . $player->getName() . " has guessed the word!");
 									$aop++;
 								}
 								}
@@ -95,7 +95,7 @@ class Main extends PluginBase implements Listener {
 								}
 								else
 								{
-									$player->sendMessage(TextFormat::GRAY . "[§cDmt§7] Please don't try to tell someone the word!");
+									$player->sendMessage(TextFormat::RED . "Please don't try to tell someone the word!");
 									$event->setCancelled(true);
 								}
 							}
@@ -104,7 +104,7 @@ class Main extends PluginBase implements Listener {
 				}
 				else
 				{
-					$player->sendMessage(TextFormat::GRAY . "[§cDmt§7] You are not allowed to chat while you're drawing!");
+					$player->sendMessage(TextFormat::RED . "You are not allowed to chat while you're drawing!");
 					$event->setCancelled(true);
 				}
 			}
@@ -138,7 +138,7 @@ class Main extends PluginBase implements Listener {
 			
                 if($args[0]=="addarena" && $sender->isOp() && $this->mode == 0) {
 					$this->mode = 1;
-					$sender->sendMessage(TextFormat::GRAY . "[§cDmt§7] Use the command " . TextFormat::LIGHT_PURPLE . "/dmt setarena [worldname]" . TextFormat::GOLD . " to enter the arena that you want to make available for the game");
+					$sender->sendMessage(TextFormat::GOLD . "Use the command " . TextFormat::LIGHT_PURPLE . "/dmt setarena [worldname]" . TextFormat::GOLD . " to enter the arena that you want to make available for the game");
 				}
 				
 				if($args[0]=="setarena" && $this->mode==1 && $sender->isOp()) {
@@ -149,15 +149,15 @@ class Main extends PluginBase implements Listener {
 						$spawn = $this->getServer()->getLevelByName($args[1])->getSafeSpawn();
 						$this->getServer()->getLevelByName($args[1])->loadChunk($spawn->getX(), $spawn->getZ());
 						$sender->teleport($spawn,0,0);
-						$sender->sendMessage(TextFormat::GRAY . "[§cDmt§7] The level " . TextFormat::LIGHT_PURPLE . $args[1] . TextFormat::GOLD . " has been choosen as an arena");
-						$sender->sendMessage(TextFormat::GRAY . "[§cDmt§7] Now you have to choose the wall. Just tap it from one corner to the opposite one");
-						$sender->sendMessage(TextFormat::GRAY . "[§cDmt§7] WARNING! DON'T TOUCH A WRONG WOOL BLOCK! ALSO IT MUST BE A WOOL BLOCK");
+						$sender->sendMessage(TextFormat::GOLD . "The level " . TextFormat::LIGHT_PURPLE . $args[1] . TextFormat::GOLD . " has been choosen as an arena");
+						$sender->sendMessage(TextFormat::GOLD . "Now you have to choose the wall. Just tap it from one corner to the opposite one");
+						$sender->sendMessage(TextFormat::RED . "WARNING! DON'T TOUCH A WRONG WOOL BLOCK! ALSO IT MUST BE A WOOL BLOCK");
 						$this->arenaname = $args[1];
 						$this->mode = 2;
 					}
 					else
 					{
-						$sender->sendMessage(TextFormat::GRAY . "[§cDmt§7] This is not a valid world name");
+						$sender->sendMessage(TextFormat::RED . "This is not a valid world name");
 					}
 				}
             return true;
@@ -174,7 +174,7 @@ class Main extends PluginBase implements Listener {
 				$this->preX = $event->getBlock()->getX();
 				$this->preY = $event->getBlock()->getY();
 				$this->preZ = $event->getBlock()->getZ();
-				$player->sendMessage(TextFormat::GRAY . "[§cDmt§7] First position: " . $this->preX . " " . $this->preY . " " . $this->preZ);
+				$player->sendMessage(TextFormat::GOLD . "First position: " . $this->preX . " " . $this->preY . " " . $this->preZ);
 			}
 			else
 			{
@@ -204,8 +204,8 @@ class Main extends PluginBase implements Listener {
 					}
 					$this->createArena();
 					$this->resetValues();
-					$player->sendMessage(TextFormat::GRAY . "[§cDmt§7] Second position: " . $event->getBlock()->getX() . " " . $event->getBlock()->getY() . " " . $event->getBlock()->getZ());
-					$player->sendMessage(TextFormat::GRAY . "[§cDmt§7] Now tap on 8 different spawn positions");
+					$player->sendMessage(TextFormat::GOLD . "Second position: " . $event->getBlock()->getX() . " " . $event->getBlock()->getY() . " " . $event->getBlock()->getZ());
+					$player->sendMessage(TextFormat::GOLD . "Now tap on 8 different spawn positions");
 					$this->mode=3;
 				}
 				else if($this->preZ == $event->getBlock()->getZ())
@@ -234,13 +234,13 @@ class Main extends PluginBase implements Listener {
 					}
 					$this->createArena();
 					$this->resetValues();
-					$player->sendMessage(TextFormat::GRAY . "[§cDmt§7] Second position: " . $event->getBlock()->getX() . " " . $event->getBlock()->getY() . " " . $event->getBlock()->getZ());
-					$player->sendMessage(TextFormat::GRAY . "[§cDmt§7] Now tap on 8 different spawn positions");
+					$player->sendMessage(TextFormat::GOLD . "Second position: " . $event->getBlock()->getX() . " " . $event->getBlock()->getY() . " " . $event->getBlock()->getZ());
+					$player->sendMessage(TextFormat::GOLD . "Now tap on 8 different spawn positions");
 					$this->mode=3;
 				}
 				else
 				{
-					$player->sendMessage(TextFormat::GRAY . "[§cDmt§7] The wall must have a width of 1 in one direction");
+					$player->sendMessage(TextFormat::RED . "The wall must have a width of 1 in one direction");
 				}
 			}
 		}
@@ -255,14 +255,14 @@ class Main extends PluginBase implements Listener {
 			else
 			{
 			$this->arena->remove("spawntoadd");
-			$player->sendMessage(TextFormat::GRAY . "[§cDmt§7] Not you have to tap on a sign, to allow the players to join! Use /dmt teleport [world] to teleport to another world!");
+			$player->sendMessage(TextFormat::GOLD . "Not you have to tap on a sign, to allow the players to join! Use /dmt teleport [world] to teleport to another world!");
 			$this->mode=11;
 			}
 		}
 		else if($player->isOp() && $this->mode==11 && $event->getPlayer()->getLevel()->getTile($event->getBlock()) instanceOf Sign)
 		{
 			$tile = $event->getPlayer()->getLevel()->getTile($event->getBlock());
-			$tile->setText(TextFormat::BLUE . "Draw my Thing",$this->arenaname,"",TextFormat::WHITE . TextFormat::BOLD . "0 / 8");
+			$tile->setText(TextFormat::BLUE . "Draw my Thing",$this->arenaname,"",TextFormat::WHITE . TextFormat::BOLD . "0/8");
 			$player->sendMessage(TextFormat::GREEN . "The arena '" . $this->arenaname . "' has been successfully added!");
 			$this->mode=0;
 			$this->arenaname="";
@@ -276,7 +276,7 @@ class Main extends PluginBase implements Listener {
 				$this->arena = new Config($this->getDataFolder() . "/arenas/" . $text[1] . ".yml", Config::YAML);
 				if($this->arena->get("ingame")==false)
 				{
-					if($text[3] != TextFormat::WHITE . TextFormat::BOLD . "8 / 8")
+					if($text[3] != TextFormat::WHITE . TextFormat::BOLD . "8/8")
 					{
 						$player->getInventory()->clearAll();
 						$playersin = 0;
@@ -300,12 +300,12 @@ class Main extends PluginBase implements Listener {
 					}
 					else
 					{
-						$player->sendTip(TextFormat::GRAY . "[§cDmt§7] This game is full");
+						$player->sendTip(TextFormat::RED . "This game is full");
 					}
 				}
 				else
 				{
-					$player->sendTip(TextFormat::GRAY . "[§cDmt§7] This game is running");
+					$player->sendTip(TextFormat::RED . "This game is running");
 				}
 			}
 		}
@@ -470,7 +470,7 @@ class GameSender extends PluginTask {
 				{
 					if($player->getLevel()->getFolderName()==$arenaname)
 					{
-						$player->sendTip(TextFormat::GRAY . "[§cDmt§7] Not enough players yet");
+						$player->sendTip(TextFormat::RED . "Not enough players yet");
 					}
 				}
 				$this->arena->set("time",120);
@@ -484,7 +484,7 @@ class GameSender extends PluginTask {
 					{
 						if($player->getLevel()->getFolderName()==$arenaname)
 						{
-							$player->sendTip(TextFormat::GRAY . "[§cDmt§7] Starting in - ". $time . " seconds");
+							$player->sendTip(TextFormat::YELLOW . $time . " seconds");
 						}
 					}
 					$time -= 1;
@@ -503,7 +503,7 @@ class GameSender extends PluginTask {
 						{
 							$player->setGamemode(0);
 							$player->getInventory()->clearAll();
-							$player->sendMessage(TextFormat::GRAY . "[§cDmt§7] Good luck " . $player->getName() . "!");
+							$player->sendMessage(TextFormat::GREEN . "Good luck " . $player->getName() . "!");
 						}
 					}
 					for($i = 1; $i <= 8; $i++)
@@ -565,7 +565,7 @@ class GameSender extends PluginTask {
 									$player->getInventory()->clearAll();
 									$player->sendMessage(TextFormat::GREEN . TextFormat::BOLD . "=======================");
 									$player->sendMessage(TextFormat::GREEN . "|");
-									$player->sendMessage(TextFormat::GRAY . "[§cDmt§7] You are the winner!");
+									$player->sendMessage(TextFormat::RED . TextFormat::BOLD . "You are the winner!");
 									$player->sendMessage(TextFormat::GREEN . "|");
 									$player->sendMessage(TextFormat::GREEN . TextFormat::BOLD . "=======================");
 									$spawn = $this->plugin->getServer()->getLevelByName()->getSafeSpawn();
@@ -604,10 +604,10 @@ class GameSender extends PluginTask {
 						{
 							if($player->getLevel()->getFolderName()==$arenaname)
 							{
-								$player->sendMessage(TextFormat::GRAY . "[§cDmt§7] Round " . $this->arena->get("current")+1);
+								$player->sendMessage(TextFormat::GOLD . "Round " . $this->arena->get("current")+1);
 								if($player!=$builder)
 								{
-								$player->sendMessage(TextFormat::GRAY . "[§cDmt§7] Drawer: " . TextFormat::RED . $builder->getName());
+								$player->sendMessage(TextFormat::GOLD . "Drawer: " . TextFormat::RED . $builder->getName());
 								}
 								if($player->getAllowFlight()==true)
 								{
@@ -645,8 +645,8 @@ class GameSender extends PluginTask {
 						$length = count($content);
 						$rn = rand(0,$length-1);
 						$this->arena->set("word",$content[$rn]);
-						$builder->sendMessage(TextFormat::GRAY . "[§cDmt§7] Your turn! The word is " . TextFormat::LIGHT_PURPLE . $this->arena->get("word"));
-						$builder->sendMessage(TextFormat::GRAY . "[§cDmt§7] You can fly now!");
+						$builder->sendMessage(TextFormat::AQUA . "Your turn! The word is " . TextFormat::LIGHT_PURPLE . $this->arena->get("word"));
+						$builder->sendMessage(TextFormat::GREEN . "You can fly now!");
 						}
 						else
 						{
@@ -667,7 +667,7 @@ class GameSender extends PluginTask {
 									$player->getInventory()->clearAll();
 									$player->sendMessage(TextFormat::GREEN . TextFormat::BOLD . "=======================");
 									$player->sendMessage(TextFormat::GREEN . "|");
-									$player->sendMessageTextFormat::GRAY . "[§cDmt§7] The winner is " . TextFormat::WHITE . $first . "!");
+									$player->sendMessage(TextFormat::RED . TextFormat::BOLD . "The winner is " . TextFormat::WHITE . $first . "!");
 									$player->sendMessage(TextFormat::GREEN . "|");
 									$player->sendMessage(TextFormat::GREEN . TextFormat::BOLD . "=======================");
 									$spawn = $this->plugin->getServer()->getLevelByName()->getSafeSpawn();
@@ -814,7 +814,7 @@ class RefreshSigns extends PluginTask {
 					{
 						$ingame=TextFormat::RED . "INGAME";
 					}
-					$t->setText($text[0],$text[1],$ingame,TextFormat::WHITE . TextFormat::BOLD . $aop . "/ 8");
+					$t->setText($text[0],$text[1],$ingame,TextFormat::WHITE . TextFormat::BOLD . $aop . "/8");
 					
 				}
 			}
