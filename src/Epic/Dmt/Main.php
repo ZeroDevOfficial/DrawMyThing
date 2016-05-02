@@ -262,7 +262,7 @@ class Main extends PluginBase implements Listener {
 		else if($player->isOp() && $this->mode==11 && $event->getPlayer()->getLevel()->getTile($event->getBlock()) instanceOf Sign)
 		{
 			$tile = $event->getPlayer()->getLevel()->getTile($event->getBlock());
-			$tile->setText(TextFormat::BLUE . "Draw my Thing",$this->arenaname,"",TextFormat::WHITE . TextFormat::BOLD . "0 / 8");
+			$tile->setText(TextFormat::BLUE . "Draw my Thing",$this->arenaname,"",TextFormat::WHITE . TextFormat::BOLD . "0/8");
 			$player->sendMessage(TextFormat::GREEN . "The arena '" . $this->arenaname . "' has been successfully added!");
 			$this->mode=0;
 			$this->arenaname="";
@@ -276,7 +276,7 @@ class Main extends PluginBase implements Listener {
 				$this->arena = new Config($this->getDataFolder() . "/arenas/" . $text[1] . ".yml", Config::YAML);
 				if($this->arena->get("ingame")==false)
 				{
-					if($text[3] != TextFormat::WHITE . TextFormat::BOLD . "8 / 8")
+					if($text[3] != TextFormat::WHITE . TextFormat::BOLD . "8/8")
 					{
 						$player->getInventory()->clearAll();
 						$playersin = 0;
@@ -569,7 +569,7 @@ class GameSender extends PluginTask {
 									$player->sendMessage(TextFormat::GREEN . "|");
 									$player->sendMessage(TextFormat::GREEN . TextFormat::BOLD . "=======================");
 									$spawn = $this->plugin->getServer()->getLevelByName()->getSafeSpawn();
-									$this->plugin->getServer()->getLevelByName()->loadChunk($spawn->getX(), $spawn->getZ());
+									$this->plugin->getServer()->getDefaultLevel->loadChunk($spawn->getX(), $spawn->getZ());
 									$player->teleport($spawn,0,0);
 							}
 						}
@@ -784,7 +784,7 @@ class RefreshSigns extends PluginTask {
 	public function onRun($tick)
 	{
 		$allplayers = $this->plugin->getServer()->getOnlinePlayers();
-		$level = $this->plugin->getServer()->getLevelByName();
+		$level = $this->plugin->getServer()->getDefaultLevel();
 		$tiles = $level->getTiles();
 		foreach($tiles as $t) {
 			if($t instanceof Sign) {	
@@ -814,7 +814,7 @@ class RefreshSigns extends PluginTask {
 					{
 						$ingame=TextFormat::RED . "INGAME";
 					}
-					$t->setText($text[0],$text[1],$ingame,TextFormat::WHITE . TextFormat::BOLD . $aop . " / 8");
+					$t->setText($text[0],$text[1],$ingame,TextFormat::WHITE . TextFormat::BOLD . $aop . "/8");
 					
 				}
 			}
