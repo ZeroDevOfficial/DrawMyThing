@@ -5,21 +5,18 @@ This plugin is in early Development
 Things on this are being changed a lot none of them get tested before they are added so use at your own risk!!!!
  
 # Authors
->**EnderPE**
+>**EpicSteve33**
 >
->EpicSteve33
+>EnderPE
 >
 >ImagicalGamer
 
 # Contact Info
 
-Username: EpicSteve33 
-
-Kik, Twitter, instagram
-
 >Kik: EnderPE1
+>Kik: EpicSteve33
 ```html
-   Message EnderPE cause im always bored
+   Message us if you have any ideas or issues
 ```
 # Other Info
 
