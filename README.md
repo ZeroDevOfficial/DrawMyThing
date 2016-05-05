@@ -13,8 +13,9 @@ Things on this are being changed a lot none of them get tested before they are a
 
 # Contact Info
 
+>**Kik: EpicSteve33**
+>
 >Kik: EnderPE1
->Kik: EpicSteve33
 ```html
    Message us if you have any ideas or issues
 ```
@@ -29,4 +30,3 @@ This plugin is working on most versions of Pocketmine if you run into this probl
 - [ ] Improve the code
 
 - [x] Release a v1.0
-
