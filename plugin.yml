@@ -1,7 +1,7 @@
 name: DrawMyThing
 main: Epic\Dmt\Main
-version: 1.0
-api: 2.0.0
+version: 1.2
+api: 3.0.1
 
 commands:
     dmt:
